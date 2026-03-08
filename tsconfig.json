@@ -5,11 +5,17 @@
     "outDir": "out",
     "lib": ["ES2020"],
     "strict": true,
+    // vite's type declarations conflict with rollup under exactOptionalPropertyTypes.
+    // skipLibCheck suppresses errors inside node_modules without affecting our code.
+    "skipLibCheck": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
     "noPropertyAccessFromIndexSignature": true
   },
-  "include": ["src"]
+  "include": ["src"],
+  // Test files must be excluded from tsc output. If out/validator.test.js is
+  // emitted, Vitest picks it up as a CommonJS module and require('vitest') fails.
+  "exclude": ["src/**/*.test.ts"]
 }
