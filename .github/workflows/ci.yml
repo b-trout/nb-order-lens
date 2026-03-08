@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          # Cache npm dependencies to speed up subsequent runs.
+          cache: npm
+
+      # Use npm ci for reproducible installs in CI. Husky v9 automatically
+      # disables its install step when the CI environment variable is set,
+      # which GitHub Actions sets to "true" by default.
+      - run: npm ci
+
+      - run: npm run compile
+
+      - run: npm run lint
+
+      # Use format:check (prettier --check) instead of format (--write) so
+      # the job fails on formatting violations without modifying files.
+      - run: npm run format:check
+
+      - run: npm test

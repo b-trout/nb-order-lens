@@ -1,0 +1,2 @@
+# Normalize line endings to LF on all platforms to keep Prettier happy.
+* text=auto eol=lf
