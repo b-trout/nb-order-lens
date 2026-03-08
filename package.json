@@ -11,6 +11,7 @@
     "watch": "tsc -watch -p ./",
     "lint": "eslint src --ext .ts",
     "format": "prettier --write src/**/*.ts",
+    "format:check": "prettier --check src/**/*.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
