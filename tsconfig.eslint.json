@@ -1,0 +1,10 @@
+{
+  // Extends the main tsconfig but includes test files so that type-aware
+  // ESLint rules (e.g. no-floating-promises) can analyse the full src/ tree.
+  // The main tsconfig.json excludes *.test.ts to prevent tsc from emitting
+  // compiled test files into out/; this file removes that restriction for
+  // linting only.
+  "extends": "./tsconfig.json",
+  "include": ["src"],
+  "exclude": []
+}
