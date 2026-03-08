@@ -1,0 +1,14 @@
+{
+  "name": "vscode-extension-dev",
+  "image": "node:20-bullseye",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+  "postCreateCommand": "npm install -g yo generator-code vsce && npm install",
+  "remoteUser": "node"
+}
