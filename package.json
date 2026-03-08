@@ -1,7 +1,28 @@
 {
   "name": "nb-order-lens",
-  "displayName": "VSCode extension for nb-order-validator - highlights cells with non-consecutive execution counts in Jupyter Notebooks.",
+  "displayName": "nb-order-lens",
+  "description": "Highlights Jupyter notebook cells whose execution order is non-consecutive.",
   "version": "0.0.1",
+  "publisher": "b-trout",
+  "categories": [
+    "Notebooks",
+    "Linters"
+  ],
+  "keywords": [
+    "jupyter",
+    "notebook",
+    "execution order",
+    "cell",
+    "validation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/b-trout/nb-order-lens.git"
+  },
+  "bugs": {
+    "url": "https://github.com/b-trout/nb-order-lens/issues"
+  },
+  "homepage": "https://github.com/b-trout/nb-order-lens#readme",
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -19,7 +40,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "prepare": "husky"
+    "prepare": "husky",
+    "vsce:package": "vsce package",
+    "vsce:publish": "vsce publish"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
@@ -27,6 +50,7 @@
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
     "@vitest/coverage-v8": "^4.0.18",
+    "@vscode/vsce": "^3.7.1",
     "eslint": "^9.0.0",
     "eslint-config-prettier": "^9.0.0",
     "husky": "^9.0.0",
