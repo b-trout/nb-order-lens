@@ -3,7 +3,8 @@
   "displayName": "VSCode extension for nb-order-validator - highlights cells with non-consecutive execution counts in Jupyter Notebooks.",
   "version": "0.0.1",
   "engines": { "vscode": "^1.85.0" },
-  "activationEvents": [],
+  "activationEvents": ["onNotebook:jupyter-notebook"],
+  "contributes": {},
   "main": "./out/extension.js",
   "scripts": {
     "compile": "tsc -p ./",
